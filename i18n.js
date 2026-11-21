@@ -10,8 +10,6 @@
 (function () {
     'use strict';
 
-    /* WhatsApp deep link. wa.me only accepts an international phone
-       number (digits, no + or spaces), e.g. https://wa.me/905551112233 */
     var WHATSAPP_BASE = 'https://wa.me/enswr';
 
     var STORAGE_KEY = 'enswr.lang';
@@ -22,7 +20,7 @@
     var browserLang = String(navigator.language || navigator.userLanguage || 'en');
 
     /* Greasy Fork serves the same script under locale paths (/es/, /tr/…).
-       Country and browser language decide which one a visitor lands on. */
+       Country and browser language decide which one a visitor lands on  */
     var GF_LOCALES = 'en ar bg ca cs da de el es fa fi fr he hr hu id it ja ko nb nl pl pt ro ru sk sl sr sv th tr uk vi zh-CN zh-TW'.split(' ');
     var COUNTRY_LOCALE = {
         TR: 'tr', ES: 'es', DE: 'de', FR: 'fr', IT: 'it', RU: 'ru',
@@ -49,7 +47,7 @@
 
     var DICT = {
         en: {
-            'meta.title': 'enswr.dev — software developer',
+            'meta.title': 'enswr.dev — software developer.',
             'meta.desc': 'enswr.dev — the portfolio of Ensar: userscripts, Python tools and small independent projects, built to be used.',
 
             'skip.intro': 'Skip intro',
@@ -66,7 +64,7 @@
             'nav.menu': 'Toggle navigation menu',
 
             'hero.eyebrow': 'portfolio',
-            'hero.title': 'I\'m <span class="grad">Ensar</span>.<span class="hero__title-sub">I build software.</span>',
+            'hero.title': 'Hey, I\'m <span class="grad">Ensar</span>.<span class="hero__title-sub">I build software.</span>',
             'hero.lede': 'From idea to code. From code to product.',
             'hero.github': 'GitHub',
             'hero.explore': 'View projects',
@@ -77,7 +75,7 @@
 
             'typing': ['Userscripts, Python tools, small experiments.', 'Built to solve one real problem.', 'Shipped, documented, still in use.'],
 
-            'egg.line': 'you typed enswr — thanks for reading the code.',
+            'egg.line': 'you typed enswr — thanks for reading the code. yay!',
 
             'term.status': 'status',
             'term.intro': 'intro',
@@ -177,7 +175,7 @@
         },
 
         tr: {
-            'meta.title': 'enswr.dev — yazılım geliştirici',
+            'meta.title': 'enswr.dev — yazılım geliştiren bir genç.',
             'meta.desc': 'enswr.dev — Ensar\'ın portfolyosu: userscript\'ler, Python araçları ve kullanılmak üzere geliştirilen küçük bağımsız projeler.',
 
             'skip.intro': 'Girişi atla',
@@ -194,8 +192,8 @@
             'nav.menu': 'Menüyü aç / kapat',
 
             'hero.eyebrow': 'portfolyo',
-            'hero.title': 'Ben <span class="grad">Ensar</span>.<span class="hero__title-sub">Yazılım geliştiriyorum.</span>',
-            'hero.lede': 'Fikirden koda. Koddan ürüne.',
+            'hero.title': 'Hey, Ben <span class="grad">Ensar</span>.<span class="hero__title-sub">Yazılım geliştiriyorum.</span>',
+            'hero.lede': 'Fikirden koda, koddan ürüne.',
             'hero.github': 'GitHub',
             'hero.explore': 'Projeleri gör',
             'hero.contact': 'İletişime geç',
@@ -205,7 +203,7 @@
 
             'typing': ['Userscript\'ler, Python araçları, küçük denemeler.', 'Tek bir gerçek sorunu çözmek için.', 'Yayınlandı, belgelendi, hâlâ kullanımda.'],
 
-            'egg.line': 'enswr yazdın — kodu okuduğun için teşekkürler.',
+            'egg.line': 'enswr yazdın — kodu okuduğun için teşekkürler. yey!',
 
             'term.status': 'status',
             'term.intro': 'intro',
