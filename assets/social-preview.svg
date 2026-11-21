@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C4B5FD"/>
+      <stop offset=".45" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E4DFFF"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity=".40"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" fill="#05070B"/>
+  <ellipse cx="330" cy="300" rx="470" ry="420" fill="url(#glowA)"/>
+  <ellipse cx="1150" cy="620" rx="430" ry="360" fill="url(#glowB)"/>
+
+  <g stroke="#E9EDF6" stroke-opacity=".045" stroke-width="1">
+    <line x1="0" y1="0" x2="0" y2="640"/><line x1="64" y1="0" x2="64" y2="640"/><line x1="128" y1="0" x2="128" y2="640"/><line x1="192" y1="0" x2="192" y2="640"/><line x1="256" y1="0" x2="256" y2="640"/><line x1="320" y1="0" x2="320" y2="640"/><line x1="384" y1="0" x2="384" y2="640"/><line x1="448" y1="0" x2="448" y2="640"/><line x1="512" y1="0" x2="512" y2="640"/><line x1="576" y1="0" x2="576" y2="640"/><line x1="640" y1="0" x2="640" y2="640"/><line x1="704" y1="0" x2="704" y2="640"/><line x1="768" y1="0" x2="768" y2="640"/><line x1="832" y1="0" x2="832" y2="640"/><line x1="896" y1="0" x2="896" y2="640"/><line x1="960" y1="0" x2="960" y2="640"/><line x1="1024" y1="0" x2="1024" y2="640"/><line x1="1088" y1="0" x2="1088" y2="640"/><line x1="1152" y1="0" x2="1152" y2="640"/><line x1="1216" y1="0" x2="1216" y2="640"/><line x1="1280" y1="0" x2="1280" y2="640"/>
+    <line x1="0" y1="0" x2="1280" y2="0"/><line x1="0" y1="64" x2="1280" y2="64"/><line x1="0" y1="128" x2="1280" y2="128"/><line x1="0" y1="192" x2="1280" y2="192"/><line x1="0" y1="256" x2="1280" y2="256"/><line x1="0" y1="320" x2="1280" y2="320"/><line x1="0" y1="384" x2="1280" y2="384"/><line x1="0" y1="448" x2="1280" y2="448"/><line x1="0" y1="512" x2="1280" y2="512"/><line x1="0" y1="576" x2="1280" y2="576"/>
+  </g>
+
+  <g transform="translate(120 170)">
+    <rect width="300" height="300" rx="74" fill="#07090F"/>
+    <rect x="1" y="1" width="298" height="298" rx="73" fill="none" stroke="#FFFFFF" stroke-opacity=".14" stroke-width="2"/>
+    <ellipse cx="150" cy="96" rx="150" ry="120" fill="url(#glowA)" opacity=".5"/>
+    <path transform="translate(41.34 248.76) scale(374.046)" d="M0.296 0.014Q0.222 0.014 0.1655 -0.0175Q0.109 -0.049 0.0775 -0.10650000000000001Q0.046 -0.164 0.046 -0.242V-0.254Q0.046 -0.332 0.077 -0.3895Q0.108 -0.447 0.164 -0.47850000000000004Q0.22 -0.51 0.294 -0.51Q0.367 -0.51 0.42100000000000004 -0.47750000000000004Q0.47500000000000003 -0.445 0.505 -0.3875Q0.535 -0.33 0.535 -0.254V-0.211H0.17400000000000002Q0.176 -0.16 0.212 -0.128Q0.248 -0.096 0.3 -0.096Q0.353 -0.096 0.378 -0.11900000000000001Q0.403 -0.14200000000000002 0.41600000000000004 -0.17L0.519 -0.116Q0.505 -0.09 0.47850000000000004 -0.0595Q0.452 -0.029 0.40800000000000003 -0.007500000000000001Q0.364 0.014 0.296 0.014ZM0.17500000000000002 -0.305H0.40700000000000003Q0.403 -0.34800000000000003 0.37250000000000005 -0.374Q0.342 -0.4 0.293 -0.4Q0.242 -0.4 0.212 -0.374Q0.182 -0.34800000000000003 0.17500000000000002 -0.305Z" fill="url(#mark)"/>
+  </g>
+
+  <text x="488" y="286" fill="url(#word)" font-family="Space Grotesk" font-size="98" font-weight="700" letter-spacing="-2.5">enswr<tspan fill="#A78BFA">.dev</tspan></text>
+  <rect x="490" y="322" width="480" height="3" rx="1.5" fill="url(#rule)"/>
+  <text x="490" y="382" fill="#94A2B8" font-family="Space Grotesk" font-size="24" font-weight="600" letter-spacing="7.5">SOFTWARE DEVELOPER</text>
+  <text x="490" y="436" fill="#6C7C96" font-family="Space Grotesk" font-size="24" font-weight="500" letter-spacing=".5">userscripts · python tools · open source</text>
+
+  <g transform="translate(490 470)">
+    <rect width="300" height="52" rx="26" fill="#8B5CF6" fill-opacity=".13" stroke="#8B5CF6" stroke-opacity=".45"/>
+    <circle cx="34" cy="26" r="6" fill="#22C55E"/>
+    <text x="54" y="34" fill="#C9B8FF" font-family="Space Grotesk" font-size="21" font-weight="500" letter-spacing="1.5">building in public</text>
+  </g>
+</svg>
