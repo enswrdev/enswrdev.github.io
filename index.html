@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>enswr.dev — Developer Portfolio</title>
+    <title>enswr.dev — software developer</title>
     <meta name="description" content="enswr.dev — the portfolio of Ensar, a developer and creator building userscripts, Python tools and experimental projects like YT NexusPatch, Siren Flash App and Insta Ping Pong Bot.">
     <meta name="author" content="Ensar">
     <meta name="theme-color" content="#05070B">
@@ -59,6 +59,8 @@
     </script>
 </head>
 <body>
+
+    <div class="spotlight" aria-hidden="true"></div>
 
     <!-- ============================================================
          INTRO SKIP — icon only, disappears the moment the site is up
@@ -138,7 +140,7 @@
                         <span class="hero__eyebrow-sub" data-i18n="hero.eyebrow">portfolio</span>
                     </p>
 
-                    <h1 class="hero__title" data-reveal style="--d:.06s" data-i18n-html="hero.title">Hey, I'm <span class="grad">Ensar</span>.</h1>
+                    <h1 class="hero__title" data-reveal style="--d:.06s" data-i18n-html="hero.title">I'm <span class="grad">Ensar</span>.<span class="hero__title-sub">I build software.</span></h1>
 
                     <p class="hero__typed" data-reveal style="--d:.12s">
                         <span class="hero__prompt" aria-hidden="true">&gt;</span>
@@ -146,7 +148,7 @@
                     </p>
 
                     <p class="hero__lede" data-reveal style="--d:.18s" data-i18n="hero.lede">
-                        Building creative projects, useful tools and exploring the digital world.
+                        From idea to code. From code to product.
                     </p>
 
                     <div class="hero__actions" data-reveal style="--d:.24s">
@@ -157,6 +159,10 @@
                         <a class="btn btn--outline" href="#projects">
                             <span data-i18n="hero.explore">Explore projects</span>
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="btn btn--ghost" href="#social">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 5.9h14.8v9.4h-8.2L7 18.6v-3.3H4.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                            <span data-i18n="hero.contact">Get in touch</span>
                         </a>
                     </div>
 
@@ -200,10 +206,10 @@
                 <div class="section__head" data-reveal>
                     <p class="section__label mono" data-i18n="projects.label">01 — selected work</p>
                     <h2 class="section__title" data-i18n="projects.title">Projects</h2>
-                    <p class="section__sub" data-i18n="projects.sub">Tools I build, ship and keep maintaining. Everything below links to its real repository.</p>
+                    <p class="section__sub" data-i18n="projects.sub">Open-source tools I build, ship and keep maintaining. Each link goes to its real repository.</p>
                 </div>
 
-                <article class="project project--featured" data-reveal>
+                <article class="project project--featured" data-reveal data-project="yt-nexuspatch">
                     <div class="project__visual" aria-hidden="true">
                         <span class="project__index mono">01</span>
                         <div class="visual__inner">
@@ -238,10 +244,19 @@
                             <span class="chip">MutationObserver</span>
                             <span class="chip">GPL-2.0</span>
                         </div>
+                        <p class="project__stat mono">
+                            <span class="project__stat-num" id="npInstalls">107</span>
+                            <span data-i18n="np.installs">total installs</span>
+                            <span class="project__stat-src">· <a id="npGreasyfork" href="https://greasyfork.org/en/scripts/596625-yt-music-nexus-patch" target="_blank" rel="noopener noreferrer">Greasy Fork</a></span>
+                        </p>
                         <div class="project__footer">
                             <a class="btn btn--primary btn--sm" href="https://github.com/enswrdev/yt-nexuspatch" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
                                 <span data-i18n="project.github">View on GitHub</span>
+                            </a>
+                            <a class="btn btn--ghost btn--sm" href="project.html?p=yt-nexuspatch">
+                                <span data-i18n="project.details">Details</span>
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </a>
                             <span class="mono project__note">Tampermonkey / Violentmonkey</span>
                         </div>
@@ -249,7 +264,7 @@
                 </article>
 
                 <div class="projects__grid">
-                    <article class="project project--card" data-reveal>
+                    <article class="project project--card" data-reveal data-project="siren-flash-app">
                         <div class="project__card-head">
                             <span class="project__index mono">02</span>
                             <span class="project__badge mono" data-i18n="siren.badge">python · desktop</span>
@@ -277,10 +292,14 @@
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
                                 <span data-i18n="project.github">View on GitHub</span>
                             </a>
+                            <a class="btn btn--ghost btn--sm" href="project.html?p=siren-flash-app">
+                                <span data-i18n="project.details">Details</span>
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
                         </div>
                     </article>
 
-                    <article class="project project--card" data-reveal style="--d:.08s">
+                    <article class="project project--card" data-reveal style="--d:.08s" data-project="insta-ping-pong-bot">
                         <div class="project__card-head">
                             <span class="project__index mono">03</span>
                             <span class="project__badge mono" data-i18n="pong.badge">python · computer vision</span>
@@ -308,6 +327,10 @@
                             <a class="btn btn--outline btn--sm" href="https://github.com/enswrdev/insta-ping-pong-bot" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
                                 <span data-i18n="project.github">View on GitHub</span>
+                            </a>
+                            <a class="btn btn--ghost btn--sm" href="project.html?p=insta-ping-pong-bot">
+                                <span data-i18n="project.details">Details</span>
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </a>
                         </div>
                     </article>
@@ -489,6 +512,10 @@
                 <div class="footer__right">
                     <a class="footer__link mono" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
                         GitHub
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a class="footer__link mono" data-wa href="https://wa.me/enswr" target="_blank" rel="noopener noreferrer">
+                        WhatsApp
                         <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                     <a class="footer__link mono" href="#home" data-i18n="footer.top">Back to top</a>

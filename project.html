@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="intro-finished">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>enswr.dev — project</title>
+    <meta name="description" content="enswr.dev — project details, features, installation guide and supported platforms.">
+    <meta name="author" content="Ensar">
+    <meta name="theme-color" content="#05070B">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://enswrdev.github.io/">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="mask-icon" href="favicon.svg" color="#8B5CF6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Original intro animation styles (untouched; no intro runs on this page) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body class="portfolio-visible">
+
+    <div class="spotlight" aria-hidden="true"></div>
+
+    <div class="site" id="site">
+        <div class="site__scrim" aria-hidden="true"></div>
+        <a class="skip-link" href="#main" data-i18n="skip.content">Skip to content</a>
+
+        <header class="nav" id="nav">
+            <div class="nav__inner">
+                <a class="brand" href="index.html">
+                    <span class="brand__mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="2.5" y="3.5" width="19" height="17" rx="4.5" stroke="currentColor" stroke-width="1.3"/>
+                            <path d="M7.2 9.4 9.6 12l-2.4 2.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12.4 14.8h4.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="brand__text">enswr<span class="brand__tld">.dev</span></span>
+                </a>
+
+                <nav class="nav__links" id="navLinks" aria-label="Primary" data-i18n-label="nav.aria">
+                    <a class="nav__link" href="index.html"><span data-i18n="nav.home">Home</span></a>
+                    <a class="nav__link is-active" href="index.html#projects"><span data-i18n="nav.projects">Projects</span></a>
+                    <a class="nav__link" href="index.html#about"><span data-i18n="nav.about">About</span></a>
+                    <a class="nav__link" href="index.html#social"><span data-i18n="nav.social">Social</span></a>
+                </nav>
+
+                <div class="lang" role="group" aria-label="Language" data-i18n-label="lang.label">
+                    <button class="lang__btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+                    <button class="lang__btn" type="button" data-lang="tr" aria-pressed="false">TR</button>
+                </div>
+
+                <a class="btn btn--ghost btn--sm nav__cta" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                    <span data-i18n="nav.github">GitHub</span>
+                </a>
+
+                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu" data-i18n-label="nav.menu">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main detail" id="main">
+            <div class="detail__wrap">
+
+                <p class="detail__back mono" data-reveal>
+                    <a href="index.html#projects">
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 5.5 4.5 12 11 18.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span data-i18n="detail.back">All projects</span>
+                    </a>
+                </p>
+
+                <header class="detail__head" data-reveal>
+                    <p class="section__label mono" id="dLabel">01 — project</p>
+                    <h1 class="detail__title" id="dTitle">Project</h1>
+                    <p class="detail__tagline" id="dTagline"></p>
+                    <p class="detail__about" id="dAbout"></p>
+                    <div class="chips" id="dChips"></div>
+                    <div class="detail__actions" id="dActions"></div>
+                </header>
+
+                <div class="detail__layout">
+                    <div class="detail__col">
+
+                        <section class="detail__block" data-reveal>
+                            <h2 class="detail__h2" data-i18n="detail.features">Features</h2>
+                            <ul class="detail__features" id="dFeatures"></ul>
+                        </section>
+
+                        <section class="detail__block" data-reveal>
+                            <h2 class="detail__h2" data-i18n="detail.install">Installation</h2>
+                            <ol class="detail__steps" id="dSteps"></ol>
+                            <p class="detail__note mono" id="dInstallNote"></p>
+                        </section>
+
+                        <section class="detail__block" data-reveal>
+                            <div class="detail__h2row">
+                                <h2 class="detail__h2" data-i18n="detail.readme">README — short version</h2>
+                                <a class="detail__readme-link mono" id="dReadmeLink" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
+                                    <span data-i18n="detail.fullReadme">Full README on GitHub</span>
+                                    <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                            </div>
+                            <div class="detail__readme" id="dReadme"></div>
+                        </section>
+
+                        <noscript>
+                            <p class="detail__note">This page renders its content with JavaScript. The full project documentation lives on GitHub.</p>
+                        </noscript>
+                    </div>
+
+                    <aside class="detail__side">
+                        <div class="detail__card" data-reveal>
+                            <h2 class="detail__h3 mono" data-i18n="detail.platforms">Supported platforms</h2>
+                            <ul class="detail__platforms" id="dPlatforms"></ul>
+
+                            <h2 class="detail__h3 mono" data-i18n="detail.info">Project details</h2>
+                            <dl class="detail__meta mono" id="dMeta"></dl>
+                        </div>
+
+                        <a class="detail__next" id="dNext" href="index.html#projects" data-reveal>
+                            <span class="detail__next-label mono" data-i18n="detail.next">Next project</span>
+                            <span class="detail__next-title" id="dNextTitle">—</span>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__inner">
+                <div class="footer__left">
+                    <span class="footer__brand">enswr<span class="brand__tld">.dev</span></span>
+                    <p class="footer__text mono" data-i18n="footer.text">software developer · independent projects</p>
+                </div>
+                <div class="footer__right">
+                    <a class="footer__link mono" href="index.html#projects">
+                        <span data-i18n="detail.back">All projects</span>
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a class="footer__link mono" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </div>
+
+    <!-- Language layer: auto-detect + EN/TR switch -->
+    <script src="i18n.js"></script>
+    <!-- Project detail rendering -->
+    <script src="project.js"></script>
+</body>
+</html>

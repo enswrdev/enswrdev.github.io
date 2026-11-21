@@ -191,6 +191,98 @@
 
     loadGithubStats();
 
+    /* ---------------- NexusPatch total installs (Greasy Fork) ---------------- */
+
+    var installNode = doc.getElementById('npInstalls');
+    var INSTALL_URL = 'https://greasyfork.org/en/scripts/596625-yt-music-nexus-patch';
+    var INSTALL_CACHE_KEY = 'enswr.np.v1';
+
+    function setInstallCount(count) {
+        if (!installNode || !count) return;
+        installNode.textContent = String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function loadInstallCount() {
+        if (!installNode || !window.fetch) return;
+
+        var cached = null;
+        try { cached = JSON.parse(sessionStorage.getItem(INSTALL_CACHE_KEY) || 'null'); } catch (e) { cached = null; }
+
+        if (cached && cached.n && (Date.now() - cached.t) < 6 * 60 * 60 * 1000) {
+            setInstallCount(cached.n);
+            return;
+        }
+
+        fetch(INSTALL_URL)
+            .then(function (res) { return res.ok ? res.text() : Promise.reject(res.status); })
+            .then(function (html) {
+                var match = html.match(/script-show-total-installs[\s\S]{0,200}?<span>([\d.,]+)<\/span>/);
+                if (!match) return;
+                var count = parseInt(match[1].replace(/[^\d]/g, ''), 10);
+                if (!count) return;
+                setInstallCount(count);
+                try { sessionStorage.setItem(INSTALL_CACHE_KEY, JSON.stringify({ t: Date.now(), n: count })); } catch (e) {}
+            })
+            .catch(function () {
+                /* the markup already shows the last known number */
+            });
+    }
+
+    loadInstallCount();
+
+    /* ---------------- project cards -> detail page ---------------- */
+
+    Array.prototype.forEach.call(doc.querySelectorAll('[data-project]'), function (card) {
+        card.addEventListener('click', function (e) {
+            if (e.target && e.target.closest && e.target.closest('a, button')) return;
+            if (window.getSelection && String(window.getSelection())) return;
+
+            var id = card.getAttribute('data-project');
+            if (id) window.location.href = 'project.html?p=' + encodeURIComponent(id);
+        });
+    });
+
+    /* ---------------- Greasy Fork link follows country / browser language ---------------- */
+
+    var gfLink = doc.getElementById('npGreasyfork');
+
+    function setGreasyForkHref() {
+        if (!gfLink) return;
+        var locale = window.I18N && window.I18N.greasyForkLocale ? window.I18N.greasyForkLocale : 'en';
+        gfLink.href = 'https://greasyfork.org/' + locale + '/scripts/596625-yt-music-nexus-patch';
+    }
+
+    setGreasyForkHref();
+    doc.addEventListener('portfolio:locale', setGreasyForkHref);
+
+    /* ---------------- cursor spotlight ---------------- */
+
+    var spotlight = doc.querySelector('.spotlight');
+    if (spotlight && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        var sx = 0;
+        var sy = 0;
+        var spotlightQueued = false;
+
+        window.addEventListener('pointermove', function (e) {
+            sx = e.clientX;
+            sy = e.clientY;
+            spotlight.classList.add('is-on');
+
+            if (spotlightQueued) return;
+            spotlightQueued = true;
+
+            window.requestAnimationFrame(function () {
+                root.style.setProperty('--sx', sx + 'px');
+                root.style.setProperty('--sy', sy + 'px');
+                spotlightQueued = false;
+            });
+        }, { passive: true });
+
+        doc.addEventListener('mouseleave', function () {
+            spotlight.classList.remove('is-on');
+        });
+    }
+
     /* ---------------- hero typing effect ---------------- */
 
     var typed = doc.getElementById('typed');
@@ -254,6 +346,35 @@
         typed.textContent = '';
         schedule(typeLoop, 320);
     }
+
+    /* ---------------- easter egg: type "enswr" ---------------- */
+
+    var eggWord = 'enswr';
+    var eggBuffer = '';
+    var eggFound = false;
+
+    doc.addEventListener('keydown', function (e) {
+        if (eggFound || e.ctrlKey || e.metaKey || e.altKey) return;
+
+        var el = e.target;
+        var tag = el && el.tagName ? el.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea' || (el && el.isContentEditable)) return;
+        if (!e.key || e.key.length !== 1) return;
+
+        eggBuffer = (eggBuffer + e.key.toLowerCase()).slice(-eggWord.length);
+        if (eggBuffer !== eggWord) return;
+
+        var body = doc.querySelector('.terminal__body');
+        if (!body) return;
+
+        eggFound = true;
+
+        var line = doc.createElement('p');
+        line.className = 't-green';
+        line.setAttribute('data-i18n', 'egg.line');
+        line.textContent = t('egg.line');
+        body.appendChild(line);
+    });
 
     /* ---------------- scroll reveal ---------------- */
 
