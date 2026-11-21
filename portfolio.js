@@ -1,6 +1,7 @@
 /* ============================================================
    enswr.dev — portfolio behaviour
-   Nav, scroll spy, reveal, typing, clock, back-to-top.
+   Nav, scroll spy, reveal, typing, clock, back-to-top and the
+   live GitHub numbers in the hero terminal.
    Nothing here touches the intro's canvas or timing.
    ============================================================ */
 
@@ -13,6 +14,14 @@
     if (!site) return;
 
     var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    function t(key, fallback) {
+        if (window.I18N && typeof window.I18N.t === 'function') {
+            var value = window.I18N.t(key);
+            if (value !== undefined && value !== key) return value;
+        }
+        return fallback;
+    }
 
     /* ---------------- navigation ---------------- */
 
@@ -49,7 +58,7 @@
 
     /* ---------------- active section indicator ---------------- */
 
-    var sections = ['home', 'projects', 'about', 'stack']
+    var sections = ['home', 'projects', 'about', 'stack', 'social']
         .map(function (id) { return doc.getElementById(id); })
         .filter(Boolean);
 
@@ -113,14 +122,93 @@
     tickClock();
     window.setInterval(tickClock, 1000);
 
+    /* ---------------- live GitHub numbers ---------------- */
+
+    var GITHUB_USER = 'enswrdev';
+    var SITE_REPO = 'enswrdev.github.io';
+    var GH_CACHE_KEY = 'enswr.gh.v1';
+    var GH_CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+
+    var ghProjects = doc.getElementById('ghProjects');
+    var ghStack = doc.getElementById('ghStack');
+
+    function renderStats(repos) {
+        if (!Array.isArray(repos) || !repos.length) return;
+
+        var own = repos.filter(function (repo) {
+            if (!repo || repo.fork || repo.archived) return false;
+            return String(repo.name).toLowerCase() !== SITE_REPO;
+        });
+
+        if (own.length && ghProjects) ghProjects.textContent = String(own.length);
+
+        var counts = {};
+        own.forEach(function (repo) {
+            if (!repo.language) return;
+            counts[repo.language] = (counts[repo.language] || 0) + 1;
+        });
+
+        var langs = Object.keys(counts)
+            .sort(function (a, b) {
+                return counts[b] - counts[a] || a.localeCompare(b);
+            })
+            .slice(0, 3)
+            .map(function (lang) { return lang.toLowerCase(); });
+
+        if (langs.length && ghStack) ghStack.textContent = langs.join(', ');
+    }
+
+    function loadGithubStats() {
+        var cached = null;
+        try {
+            cached = JSON.parse(sessionStorage.getItem(GH_CACHE_KEY) || 'null');
+        } catch (e) {
+            cached = null;
+        }
+
+        if (cached && cached.repos && (Date.now() - cached.t) < GH_CACHE_TTL) {
+            renderStats(cached.repos);
+            return;
+        }
+
+        if (!window.fetch) return;
+
+        fetch('https://api.github.com/users/' + GITHUB_USER + '/repos?per_page=100&sort=pushed', {
+            headers: { Accept: 'application/vnd.github+json' }
+        })
+            .then(function (res) { return res.ok ? res.json() : Promise.reject(res.status); })
+            .then(function (data) {
+                if (!Array.isArray(data)) return;
+                renderStats(data);
+                try {
+                    sessionStorage.setItem(GH_CACHE_KEY, JSON.stringify({ t: Date.now(), repos: data }));
+                } catch (e) {}
+            })
+            .catch(function () {
+                /* keep the static fallback already in the markup */
+            });
+    }
+
+    loadGithubStats();
+
     /* ---------------- hero typing effect ---------------- */
 
     var typed = doc.getElementById('typed');
-    var phrases = ['Developer & Creator.', 'Building useful tools.', 'Exploring the digital world.'];
+    var phrases = [];
     var phraseIndex = 0;
     var charIndex = 0;
     var deleting = false;
     var typingStarted = false;
+    var typeTimer = null;
+
+    function readPhrases() {
+        var list = window.I18N ? window.I18N.t('typing') : null;
+        return Array.isArray(list) && list.length ? list : ['Developer & Creator.'];
+    }
+
+    function schedule(fn, ms) {
+        typeTimer = window.setTimeout(fn, ms);
+    }
 
     function typeLoop() {
         if (!typed) return;
@@ -133,11 +221,11 @@
 
             if (charIndex >= phrase.length) {
                 deleting = true;
-                window.setTimeout(typeLoop, 1900);
+                schedule(typeLoop, 1900);
                 return;
             }
 
-            window.setTimeout(typeLoop, 52 + Math.random() * 46);
+            schedule(typeLoop, 52 + Math.random() * 46);
         } else {
             charIndex -= 1;
             typed.textContent = phrase.slice(0, charIndex);
@@ -145,17 +233,18 @@
             if (charIndex <= 0) {
                 deleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                window.setTimeout(typeLoop, 380);
+                schedule(typeLoop, 380);
                 return;
             }
 
-            window.setTimeout(typeLoop, 26);
+            schedule(typeLoop, 26);
         }
     }
 
     function startTyping() {
         if (typingStarted || !typed) return;
         typingStarted = true;
+        phrases = readPhrases();
 
         if (reduceMotion) {
             typed.textContent = phrases[0];
@@ -163,7 +252,7 @@
         }
 
         typed.textContent = '';
-        window.setTimeout(typeLoop, 320);
+        schedule(typeLoop, 320);
     }
 
     /* ---------------- scroll reveal ---------------- */
@@ -193,6 +282,27 @@
     }
 
     doc.addEventListener('portfolio:reveal', startReveal);
+
+    /* ---------------- language changes ---------------- */
+
+    doc.addEventListener('portfolio:lang', function () {
+        if (!typingStarted) return;
+
+        phrases = readPhrases();
+        phraseIndex = 0;
+        charIndex = 0;
+        deleting = false;
+
+        if (typeTimer) window.clearTimeout(typeTimer);
+
+        if (reduceMotion || !typed) {
+            if (typed) typed.textContent = phrases[0];
+            return;
+        }
+
+        typed.textContent = '';
+        schedule(typeLoop, 240);
+    });
 
     // Resume path: the intro already finished earlier in this page load.
     if (root.classList.contains('intro-finished')) startReveal();

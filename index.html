@@ -9,13 +9,13 @@
     <meta name="author" content="Ensar">
     <meta name="theme-color" content="#05070B">
     <meta name="color-scheme" content="dark">
-    <link rel="canonical" href="https://enswr.dev/">
+    <link rel="canonical" href="https://enswrdev.github.io/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="enswr.dev">
     <meta property="og:title" content="enswr.dev — Developer Portfolio">
     <meta property="og:description" content="Developer &amp; Creator. Building creative projects, useful tools and exploring the digital world.">
-    <meta property="og:url" content="https://enswr.dev/">
+    <meta property="og:url" content="https://enswrdev.github.io/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="enswr.dev — Developer Portfolio">
     <meta name="twitter:description" content="Developer &amp; Creator. Building creative projects, useful tools and exploring the digital world.">
@@ -35,8 +35,9 @@
 
     <noscript>
         <style>
-            #boot, #matrix-screen { display: none !important; }
+            #boot, #matrix-screen, .intro-skip { display: none !important; }
             .site { opacity: 1 !important; pointer-events: auto !important; }
+            html, body { overflow: auto !important; height: auto !important; }
         </style>
     </noscript>
 
@@ -47,12 +48,27 @@
         "name": "Ensar",
         "alternateName": "enswr.dev",
         "jobTitle": "Developer & Creator",
-        "url": "https://enswr.dev/",
-        "sameAs": ["https://github.com/enswrdev"]
+        "url": "https://enswrdev.github.io/",
+        "sameAs": [
+            "https://github.com/enswrdev",
+            "https://www.instagram.com/enswr.dev",
+            "https://www.threads.com/@enswr.dev",
+            "https://x.com/enswrdev"
+        ]
     }
     </script>
 </head>
 <body>
+
+    <!-- ============================================================
+         INTRO SKIP — icon only, disappears the moment the site is up
+         ============================================================ -->
+    <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro" data-i18n-label="skip.intro">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.5 5.4v13.2a.6.6 0 0 0 .92.5l10.2-6.6a.6.6 0 0 0 0-1L5.42 4.9a.6.6 0 0 0-.92.5Z" fill="currentColor"/>
+            <path d="M19 5.5v13" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+        </svg>
+    </button>
 
     <!-- ============================================================
          ORIGINAL INTRO — markup kept exactly as delivered
@@ -73,7 +89,7 @@
          ============================================================ -->
     <div class="site" id="site" aria-hidden="true">
         <div class="site__scrim" aria-hidden="true"></div>
-        <a class="skip-link" href="#home">Skip to content</a>
+        <a class="skip-link" href="#home" data-i18n="skip.content">Skip to content</a>
 
         <header class="nav" id="nav">
             <div class="nav__inner">
@@ -88,19 +104,25 @@
                     <span class="brand__text">enswr<span class="brand__tld">.dev</span></span>
                 </a>
 
-                <nav class="nav__links" id="navLinks" aria-label="Primary">
-                    <a class="nav__link is-active" href="#home">Home</a>
-                    <a class="nav__link" href="#projects">Projects</a>
-                    <a class="nav__link" href="#about">About</a>
-                    <a class="nav__link" href="#stack">Stack</a>
+                <nav class="nav__links" id="navLinks" aria-label="Primary" data-i18n-label="nav.aria">
+                    <a class="nav__link is-active" href="#home"><span data-i18n="nav.home">Home</span></a>
+                    <a class="nav__link" href="#projects"><span data-i18n="nav.projects">Projects</span></a>
+                    <a class="nav__link" href="#about"><span data-i18n="nav.about">About</span></a>
+                    <a class="nav__link" href="#stack"><span data-i18n="nav.stack">Stack</span></a>
+                    <a class="nav__link" href="#social"><span data-i18n="nav.social">Social</span></a>
                 </nav>
+
+                <div class="lang" role="group" aria-label="Language" data-i18n-label="lang.label">
+                    <button class="lang__btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+                    <button class="lang__btn" type="button" data-lang="tr" aria-pressed="false">TR</button>
+                </div>
 
                 <a class="btn btn--ghost btn--sm nav__cta" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
                     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                    GitHub
+                    <span data-i18n="nav.github">GitHub</span>
                 </a>
 
-                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+                <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu" data-i18n-label="nav.menu">
                     <span></span><span></span>
                 </button>
             </div>
@@ -113,29 +135,27 @@
                     <p class="hero__eyebrow" data-reveal>
                         <span class="hero__prompt" aria-hidden="true">~/</span>enswr.dev
                         <span class="hero__eyebrow-dot" aria-hidden="true"></span>
-                        <span class="hero__eyebrow-sub">portfolio</span>
+                        <span class="hero__eyebrow-sub" data-i18n="hero.eyebrow">portfolio</span>
                     </p>
 
-                    <h1 class="hero__title" data-reveal style="--d:.06s">
-                        Hey, I'm <span class="grad">Ensar</span>.
-                    </h1>
+                    <h1 class="hero__title" data-reveal style="--d:.06s" data-i18n-html="hero.title">Hey, I'm <span class="grad">Ensar</span>.</h1>
 
                     <p class="hero__typed" data-reveal style="--d:.12s">
                         <span class="hero__prompt" aria-hidden="true">&gt;</span>
                         <span id="typed" aria-live="off">&nbsp;</span><span class="caret" aria-hidden="true"></span>
                     </p>
 
-                    <p class="hero__lede" data-reveal style="--d:.18s">
+                    <p class="hero__lede" data-reveal style="--d:.18s" data-i18n="hero.lede">
                         Building creative projects, useful tools and exploring the digital world.
                     </p>
 
                     <div class="hero__actions" data-reveal style="--d:.24s">
                         <a class="btn btn--primary" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                            GitHub profile
+                            <span data-i18n="hero.github">GitHub profile</span>
                         </a>
                         <a class="btn btn--outline" href="#projects">
-                            Explore projects
+                            <span data-i18n="hero.explore">Explore projects</span>
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5.5 12.5 12 19l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
                     </div>
@@ -143,10 +163,10 @@
                     <div class="hero__meta" data-reveal style="--d:.3s">
                         <span class="status">
                             <span class="status__dot" aria-hidden="true"></span>
-                            Available for new projects
+                            <span data-i18n="hero.status">Available for new projects</span>
                         </span>
                         <span class="hero__meta-divider" aria-hidden="true"></span>
-                        <span class="mono hero__clock">local time <span id="clock">--:--:--</span></span>
+                        <span class="mono hero__clock"><span data-i18n="hero.clock">local time</span> <span id="clock">--:--:--</span></span>
                     </div>
 
                     <div class="terminal" data-reveal style="--d:.36s">
@@ -157,53 +177,59 @@
                             <span class="terminal__title mono">enswr@dev:~</span>
                         </div>
                         <div class="terminal__body mono">
-                            <p><span class="t-prompt">enswr@dev:~$</span> status</p>
-                            <p class="t-dim">intro <span class="t-green">grub ✓</span> · matrix <span class="t-green">running</span></p>
-                            <p class="t-dim">projects <span class="t-blue">3 public</span> · stack <span class="t-purple">javascript, python</span></p>
+                            <p><span class="t-prompt">enswr@dev:~$</span> <span data-i18n="term.status">status</span></p>
+                            <p class="t-dim"><span data-i18n="term.intro">intro</span> <span class="t-green">grub ✓</span> · <span data-i18n="term.matrix">matrix running</span></p>
+                            <p class="t-dim">
+                                <span data-i18n="term.projects">projects</span>
+                                <span class="t-blue"><span id="ghProjects">3</span> <span data-i18n="term.public">public</span></span>
+                                ·
+                                <span data-i18n="term.stack">stack</span>
+                                <span class="t-purple" id="ghStack">javascript, python</span>
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <a class="hero__scroll" href="#projects" aria-label="Scroll to projects">
-                    <span class="mono">scroll</span>
+                    <span class="mono" data-i18n="hero.scroll">scroll</span>
                     <span class="hero__scroll-line" aria-hidden="true"></span>
                 </a>
             </section>
 
             <section class="section" id="projects">
                 <div class="section__head" data-reveal>
-                    <p class="section__label mono">01 — selected work</p>
-                    <h2 class="section__title">Projects</h2>
-                    <p class="section__sub">Tools I build, ship and keep maintaining. Everything below links to its real repository.</p>
+                    <p class="section__label mono" data-i18n="projects.label">01 — selected work</p>
+                    <h2 class="section__title" data-i18n="projects.title">Projects</h2>
+                    <p class="section__sub" data-i18n="projects.sub">Tools I build, ship and keep maintaining. Everything below links to its real repository.</p>
                 </div>
 
                 <article class="project project--featured" data-reveal>
                     <div class="project__visual" aria-hidden="true">
                         <span class="project__index mono">01</span>
                         <div class="visual__inner">
-                            <span class="visual__label mono">userscript · javascript</span>
-                            <span class="visual__word">Nexus<br>Patch</span>
-                            <span class="visual__meta mono">one nexus · two platforms</span>
+                            <span class="visual__label mono" data-i18n="np.label">userscript · javascript</span>
+                            <span class="visual__word" data-i18n-html="np.word">Nexus<br>Patch</span>
+                            <span class="visual__meta mono" data-i18n="np.meta">one nexus · two platforms</span>
                         </div>
-                        <span class="project__corner mono" aria-hidden="true">featured</span>
+                        <span class="project__corner mono" data-i18n="np.corner">featured</span>
                     </div>
 
                     <div class="project__body">
                         <span class="badge">
                             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.8l6-.8L12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-                            Featured
+                            <span data-i18n="project.featured">Featured</span>
                         </span>
                         <h3 class="project__title">YT NexusPatch</h3>
-                        <p class="project__desc">
+                        <p class="project__desc" data-i18n="np.desc">
                             A single-file userscript that gives YouTube and YouTube Music a cleaner, unified experience:
                             Premium-inspired custom branding, lightweight cosmetic ad filtering and a tidier interface —
                             no manual configuration required.
                         </p>
                         <ul class="project__points">
-                            <li>Custom branding across both platforms, with light and dark theme support</li>
-                            <li>CSS-based cosmetic filtering and dynamic DOM cleanup of promotional elements</li>
-                            <li>MutationObserver keeps changes applied through YouTube's single-page navigation</li>
-                            <li>Automatic updates through the userscript manager's update source</li>
+                            <li data-i18n="np.p1">Custom branding across both platforms, with light and dark theme support</li>
+                            <li data-i18n="np.p2">CSS-based cosmetic filtering and dynamic DOM cleanup of promotional elements</li>
+                            <li data-i18n="np.p3">MutationObserver keeps changes applied through YouTube's single-page navigation</li>
+                            <li data-i18n="np.p4">Automatic updates through the userscript manager's update source</li>
                         </ul>
                         <div class="chips">
                             <span class="chip">JavaScript</span>
@@ -215,7 +241,7 @@
                         <div class="project__footer">
                             <a class="btn btn--primary btn--sm" href="https://github.com/enswrdev/yt-nexuspatch" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                                View on GitHub
+                                <span data-i18n="project.github">View on GitHub</span>
                             </a>
                             <span class="mono project__note">Tampermonkey / Violentmonkey</span>
                         </div>
@@ -226,19 +252,19 @@
                     <article class="project project--card" data-reveal>
                         <div class="project__card-head">
                             <span class="project__index mono">02</span>
-                            <span class="project__badge mono">python · desktop</span>
+                            <span class="project__badge mono" data-i18n="siren.badge">python · desktop</span>
                         </div>
                         <h3 class="project__title project__title--sm">Siren Flash App</h3>
-                        <p class="project__desc">
+                        <p class="project__desc" data-i18n="siren.desc">
                             A customizable police / EMS siren and flash controller for roleplay, simulation setups and
                             emergency-signaling demos. Three sound modes, keyboard-driven sirens, alternating flash
                             frames and live theme switching.
                         </p>
                         <ul class="project__points project__points--compact">
-                            <li>ARMAS, CSR and ZER modes with siren, horn and extended siren controls</li>
-                            <li>Left / right flash system with a fullscreen icon overlay</li>
-                            <li>First-run setup saves theme, language and media folder to a config file</li>
-                            <li>Ships as a ready-to-run Windows build; source runs on Python 3.10–3.12</li>
+                            <li data-i18n="siren.p1">ARMAS, CSR and ZER modes with siren, horn and extended siren controls</li>
+                            <li data-i18n="siren.p2">Left / right flash system with a fullscreen icon overlay</li>
+                            <li data-i18n="siren.p3">First-run setup saves theme, language and media folder to a config file</li>
+                            <li data-i18n="siren.p4">Ships as a ready-to-run Windows build; source runs on Python 3.10–3.12</li>
                         </ul>
                         <div class="chips">
                             <span class="chip">Python</span>
@@ -249,7 +275,7 @@
                         <div class="project__footer">
                             <a class="btn btn--outline btn--sm" href="https://github.com/enswrdev/siren-flash-app" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                                View on GitHub
+                                <span data-i18n="project.github">View on GitHub</span>
                             </a>
                         </div>
                     </article>
@@ -257,19 +283,19 @@
                     <article class="project project--card" data-reveal style="--d:.08s">
                         <div class="project__card-head">
                             <span class="project__index mono">03</span>
-                            <span class="project__badge mono">python · computer vision</span>
+                            <span class="project__badge mono" data-i18n="pong.badge">python · computer vision</span>
                         </div>
                         <h3 class="project__title project__title--sm">Insta Ping Pong Bot</h3>
-                        <p class="project__desc">
+                        <p class="project__desc" data-i18n="pong.desc">
                             A real-time computer-vision bot for the Instagram DM ping-pong minigame, mirrored on
                             Windows through Scrcpy. HSV colour tracking and trajectory prediction drive the paddle,
                             with a local virtual wall compensating for latency and dropped frames.
                         </p>
                         <ul class="project__points project__points--compact">
-                            <li>Red-ball HSV mask with trajectory and wall-reflection prediction</li>
-                            <li>Hybrid local wall sweeps ±30 px at ~1 ms to widen paddle coverage</li>
-                            <li>Win32 mouse automation drags the paddle without manual clicks</li>
-                            <li>Live OpenCV HUD for centroids, impact markers and shield bounds</li>
+                            <li data-i18n="pong.p1">Red-ball HSV mask with trajectory and wall-reflection prediction</li>
+                            <li data-i18n="pong.p2">Hybrid local wall sweeps ±30 px at ~1 ms to widen paddle coverage</li>
+                            <li data-i18n="pong.p3">Win32 mouse automation drags the paddle without manual clicks</li>
+                            <li data-i18n="pong.p4">Live OpenCV HUD for centroids, impact markers and shield bounds</li>
                         </ul>
                         <div class="chips">
                             <span class="chip">Python</span>
@@ -281,7 +307,7 @@
                         <div class="project__footer">
                             <a class="btn btn--outline btn--sm" href="https://github.com/enswrdev/insta-ping-pong-bot" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                                View on GitHub
+                                <span data-i18n="project.github">View on GitHub</span>
                             </a>
                         </div>
                     </article>
@@ -290,26 +316,26 @@
 
             <section class="section" id="about">
                 <div class="section__head" data-reveal>
-                    <p class="section__label mono">02 — about</p>
-                    <h2 class="section__title">About</h2>
+                    <p class="section__label mono" data-i18n="about.label">02 — about</p>
+                    <h2 class="section__title" data-i18n="about.title">About</h2>
                 </div>
 
                 <div class="about">
                     <div class="about__panel" data-reveal>
-                        <p class="about__lead">
+                        <p class="about__lead" data-i18n="about.lead">
                             I'm Ensar — a developer and creator who likes turning small frustrations into tools that
                             actually work.
                         </p>
-                        <p class="about__text">
+                        <p class="about__text" data-i18n="about.text">
                             Most of what I build starts with a problem in my own workflow: an interface that could be
                             cleaner, a controller that needs better feedback, a minigame that needs a better paddle.
                             I like the whole loop — from the first experiment to something other people can install
                             and use.
                         </p>
                         <div class="about__tags">
-                            <span class="about__tag">Developer &amp; Creator</span>
-                            <span class="about__tag">Technology enthusiast</span>
-                            <span class="about__tag">Project builder</span>
+                            <span class="about__tag" data-i18n="about.tag1">Developer &amp; Creator</span>
+                            <span class="about__tag" data-i18n="about.tag2">Technology enthusiast</span>
+                            <span class="about__tag" data-i18n="about.tag3">Project builder</span>
                         </div>
                     </div>
 
@@ -321,10 +347,13 @@
                             <span class="terminal__title mono">whoami</span>
                         </div>
                         <dl class="about__list mono">
-                            <div><dt>role</dt><dd>developer &amp; creator</dd></div>
-                            <div><dt>focus</dt><dd>userscripts · python tools</dd></div>
-                            <div><dt>approach</dt><dd>build it, test it, ship it</dd></div>
-                            <div><dt>source</dt><dd><a href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">github.com/enswrdev</a></dd></div>
+                            <div><dt data-i18n="who.role">role</dt><dd data-i18n="who.roleValue">developer &amp; creator</dd></div>
+                            <div><dt data-i18n="who.status">status</dt><dd data-i18n="who.statusValue">student</dd></div>
+                            <div><dt data-i18n="who.study">study</dt><dd data-i18n="who.studyValue">computer engineering</dd></div>
+                            <div><dt data-i18n="who.english">english</dt><dd data-i18n="who.englishValue">&gt; B2</dd></div>
+                            <div><dt data-i18n="who.focus">focus</dt><dd data-i18n="who.focusValue">userscripts · python tools</dd></div>
+                            <div><dt data-i18n="who.approach">approach</dt><dd data-i18n="who.approachValue">build it, test it, ship it</dd></div>
+                            <div><dt data-i18n="who.source">source</dt><dd><a href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">github.com/enswrdev</a></dd></div>
                         </dl>
                     </div>
                 </div>
@@ -332,14 +361,14 @@
 
             <section class="section section--stack" id="stack">
                 <div class="section__head" data-reveal>
-                    <p class="section__label mono">03 — toolbox</p>
-                    <h2 class="section__title">Tech stack</h2>
-                    <p class="section__sub">Only what shows up in the repositories above — nothing assumed.</p>
+                    <p class="section__label mono" data-i18n="stack.label">03 — toolbox</p>
+                    <h2 class="section__title" data-i18n="stack.title">Tech stack</h2>
+                    <p class="section__sub" data-i18n="stack.sub">Only what shows up in the repositories above — nothing assumed.</p>
                 </div>
 
                 <div class="stack">
                     <div class="stack__group" data-reveal>
-                        <h3 class="stack__title mono"><span class="stack__dot stack__dot--purple" aria-hidden="true"></span>Languages</h3>
+                        <h3 class="stack__title mono"><span class="stack__dot stack__dot--purple" aria-hidden="true"></span><span data-i18n="stack.languages">Languages</span></h3>
                         <div class="chips chips--lg">
                             <span class="chip">JavaScript</span>
                             <span class="chip">Python</span>
@@ -347,7 +376,7 @@
                     </div>
 
                     <div class="stack__group" data-reveal style="--d:.08s">
-                        <h3 class="stack__title mono"><span class="stack__dot stack__dot--blue" aria-hidden="true"></span>Libraries</h3>
+                        <h3 class="stack__title mono"><span class="stack__dot stack__dot--blue" aria-hidden="true"></span><span data-i18n="stack.libraries">Libraries</span></h3>
                         <div class="chips chips--lg">
                             <span class="chip">OpenCV</span>
                             <span class="chip">NumPy</span>
@@ -358,7 +387,7 @@
                     </div>
 
                     <div class="stack__group" data-reveal style="--d:.16s">
-                        <h3 class="stack__title mono"><span class="stack__dot stack__dot--green" aria-hidden="true"></span>Tools &amp; platforms</h3>
+                        <h3 class="stack__title mono"><span class="stack__dot stack__dot--green" aria-hidden="true"></span><span data-i18n="stack.tools">Tools &amp; platforms</span></h3>
                         <div class="chips chips--lg">
                             <span class="chip">Tampermonkey</span>
                             <span class="chip">Violentmonkey</span>
@@ -370,23 +399,106 @@
                     </div>
                 </div>
             </section>
+
+            <section class="section section--social" id="social">
+                <div class="section__head" data-reveal>
+                    <p class="section__label mono" data-i18n="social.label">04 — contact</p>
+                    <h2 class="section__title" data-i18n="social.title">Social</h2>
+                    <p class="section__sub" data-i18n="social.sub">Where I post, build in public and answer questions. WhatsApp is the fastest way to reach me.</p>
+                </div>
+
+                <div class="social">
+                    <a class="social__card social__card--ig" href="https://www.instagram.com/enswr.dev" target="_blank" rel="noopener noreferrer" data-reveal>
+                        <span class="social__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        </span>
+                        <span class="social__body">
+                            <span class="social__name">Instagram</span>
+                            <span class="social__handle mono">@enswr.dev</span>
+                            <span class="social__desc" data-i18n="social.igDesc">Photos, stories and behind the scenes.</span>
+                        </span>
+                        <span class="social__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </a>
+
+                    <a class="social__card social__card--wa" data-wa href="https://wa.me/enswr" target="_blank" rel="noopener noreferrer" data-reveal style="--d:.06s">
+                        <span class="social__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        </span>
+                        <span class="social__body">
+                            <span class="social__name">WhatsApp</span>
+                            <span class="social__handle mono">wa.me/enswr</span>
+                            <span class="social__desc" data-i18n="social.waDesc">Direct message — usually the fastest reply.</span>
+                        </span>
+                        <span class="social__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </a>
+
+                    <a class="social__card social__card--th" href="https://www.threads.com/@enswr.dev" target="_blank" rel="noopener noreferrer" data-reveal style="--d:.12s">
+                        <span class="social__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg>
+                        </span>
+                        <span class="social__body">
+                            <span class="social__name">Threads</span>
+                            <span class="social__handle mono">@enswr.dev</span>
+                            <span class="social__desc" data-i18n="social.thDesc">Short thoughts and daily updates.</span>
+                        </span>
+                        <span class="social__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </a>
+
+                    <a class="social__card social__card--x" href="https://x.com/enswrdev" target="_blank" rel="noopener noreferrer" data-reveal style="--d:.18s">
+                        <span class="social__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </span>
+                        <span class="social__body">
+                            <span class="social__name">X</span>
+                            <span class="social__handle mono">@enswrdev</span>
+                            <span class="social__desc" data-i18n="social.xDesc">Dev notes and quick updates.</span>
+                        </span>
+                        <span class="social__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="contact" data-reveal>
+                    <div class="contact__text">
+                        <h3 class="contact__title" data-i18n="contact.title">Got a question?</h3>
+                        <p class="contact__body" data-i18n="contact.text">
+                            If you want to ask me something — about a project, an idea or anything else — you can reach me directly on WhatsApp.
+                        </p>
+                    </div>
+                    <a class="btn btn--primary contact__cta" data-wa href="https://wa.me/enswr" target="_blank" rel="noopener noreferrer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        <span data-i18n="contact.cta">Message on WhatsApp</span>
+                    </a>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
             <div class="footer__inner">
                 <div class="footer__left">
                     <span class="footer__brand">enswr<span class="brand__tld">.dev</span></span>
-                    <p class="footer__text mono">developer &amp; creator — built with intent</p>
+                    <p class="footer__text mono" data-i18n="footer.text">developer &amp; creator — built with intent</p>
                 </div>
                 <div class="footer__right">
                     <a class="footer__link mono" href="https://github.com/enswrdev" target="_blank" rel="noopener noreferrer">
                         GitHub
                         <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                    <a class="footer__link mono" href="#home">Back to top</a>
+                    <a class="footer__link mono" href="#home" data-i18n="footer.top">Back to top</a>
                 </div>
             </div>
         </footer>
+
+        <a class="wa-fab" data-wa href="https://wa.me/enswr" target="_blank" rel="noopener noreferrer" aria-label="Message me on WhatsApp" data-i18n-label="wa.fab">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
 
         <button class="to-top" id="toTop" type="button" aria-label="Back to top">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -395,6 +507,8 @@
 
     <!-- Original intro logic (not modified) -->
     <script src="script.js"></script>
+    <!-- Language layer: auto-detect + EN/TR switch -->
+    <script src="i18n.js"></script>
     <!-- Portfolio behaviour -->
     <script src="portfolio.js"></script>
     <!-- Bridge: reveals the portfolio over the original Matrix canvas -->
