@@ -27,7 +27,7 @@
                     'Cosmetic filtering removes promotional rows, banners and upsell prompts from the DOM.',
                     'A MutationObserver re-applies everything as YouTube swaps pages without a reload.',
                     'Branding is pure CSS — no external assets and no layout reflow.',
-                    'Updates arrive through the userscript manager; version 5.2 is current.'
+                    'Updates arrive through the userscript manager; version 5.2.0 is current.'
                 ],
                 install: [
                     {
@@ -58,7 +58,7 @@
                         ]
                     }
                 ],
-                installNote: 'Tampermonkey / Violentmonkey · v5.2 · GPL-2.0',
+                installNote: 'Tampermonkey / Violentmonkey · v5.2.0 · GPL-2.0',
                 platforms: [
                     { name: 'Google Chrome', note: 'Tampermonkey / Violentmonkey' },
                     { name: 'Microsoft Edge', note: 'Tampermonkey / Violentmonkey' },
@@ -70,7 +70,7 @@
                     { k: 'type', v: 'userscript · single file' },
                     { k: 'licence', v: 'GPL-2.0' },
                     { k: 'source', v: 'open source' },
-                    { k: 'version', v: '5.2' },
+                    { k: 'version', v: '5.2.0' },
                     { k: 'repo', v: 'enswrdev/yt-nexuspatch' }
                 ],
                 readme: [
@@ -90,7 +90,7 @@
                     'Kozmetik filtreleme; promosyon satırlarını, afişleri ve yükseltme uyarılarını DOM\'dan kaldırır.',
                     'MutationObserver, YouTube sayfa değiştirdiğinde her şeyi yeniden uygular — yenileme gerekmez.',
                     'Markalama saf CSS: harici görsel yok, yerleşim kayması yok.',
-                    'Güncellemeler userscript yöneticisinden gelir; güncel sürüm 5.2.'
+                    'Güncellemeler userscript yöneticisinden gelir; güncel sürüm 5.2.0.'
                 ],
                 install: [
                     {
@@ -121,7 +121,7 @@
                         ]
                     }
                 ],
-                installNote: 'Tampermonkey / Violentmonkey · v5.2 · GPL-2.0',
+                installNote: 'Tampermonkey / Violentmonkey · v5.2.0 · GPL-2.0',
                 platforms: [
                     { name: 'Google Chrome', note: 'Tampermonkey / Violentmonkey' },
                     { name: 'Microsoft Edge', note: 'Tampermonkey / Violentmonkey' },
@@ -133,7 +133,7 @@
                     { k: 'tür', v: 'userscript · tek dosya' },
                     { k: 'lisans', v: 'GPL-2.0' },
                     { k: 'kaynak', v: 'açık kaynak' },
-                    { k: 'sürüm', v: '5.2' },
+                    { k: 'sürüm', v: '5.2.0' },
                     { k: 'depo', v: 'enswrdev/yt-nexuspatch' }
                 ],
                 readme: [
